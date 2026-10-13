@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Swar</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #FFD1DC 0%, #E0F2FE 100%); 
+            margin: 0; padding: 40px 20px; min-height: 100vh; color: #334155;
+        }
+        .menu-container { 
+            max-width: 480px; margin: 0 auto; background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06); border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        h1 { color: #db2777; font-size: 28px; margin-bottom: 5px; font-weight: 700; text-align: center; }
+        .subtitle { color: #0284c7; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; text-align: center; }
+        .menu-item { 
+            background: #ffffff; border: 2px solid transparent; padding: 20px; margin: 15px 0; border-radius: 16px; 
+            cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .menu-item:hover { transform: translateY(-3px); border-color: #7dd3fc; box-shadow: 0 10px 20px rgba(125, 211, 252, 0.3); }
+        .dish-info h3 { margin: 0 0 5px 0; font-size: 18px; color: #1e293b; }
+        .dish-info p { margin: 0; color: #64748b; font-size: 14px; }
+        .price { font-size: 18px; font-weight: bold; color: #db2777; background: #fdf2f8; padding: 6px 12px; border-radius: 20px; white-space: nowrap; }
+        .suggestion-box { 
+            margin-top: 25px; padding: 18px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); 
+            border: 1px solid #bbf7d0; border-radius: 16px; display: none; color: #166534; font-size: 15px; line-height: 1.5; box-shadow: 0 4px 12px rgba(22, 101, 52, 0.05); animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { margin-top: 40px; font-size: 13px; color: #64748b; text-align: center; }
+        footer a { color: #0284c7; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+        footer a:hover { color: #db2777; text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="menu-container">
+    <h1>The Aesthetic Bistro</h1>
+    <div class="subtitle">Digital Menu Card</div>
+    <div class="menu-item" onclick="showSuggestion('puri')">
+        <div class="dish-info"><h3>Puri Bhaji</h3><p>Fresh puris served with spicy potato gravy</p></div>
+        <div class="price">Rs 60</div>
+    </div>
+    <div class="menu-item" onclick="showSuggestion('chole')">
+        <div class="dish-info"><h3>Chole Bhature</h3><p>Delhi style chickpeas with fluffy fried bread</p></div>
+        <div class="price">Rs 80</div>
+    </div>
+    <div class="menu-item" onclick="showSuggestion('dosa')">
+        <div class="dish-info"><h3>Masala Dosa</h3><p>Crispy crepe with potato filling and chutney</p></div>
+        <div class="price">Rs 90</div>
+    </div>
+    <div class="menu-item" onclick="showSuggestion('jamun')">
+        <div class="dish-info"><h3>Gulab Jamun</h3><p>Two pieces of warm, syrup-soaked sweet dough balls</p></div>
+        <div class="price">Rs 40</div>
+    </div>
+    <div id="suggestion" class="suggestion-box"></div>
+</div>
+<footer>
+    <p>Designed with love by <b>SwarbTech</b></p>
+    <p>Questions or feedback? Contact: <a href="mailto:swarbtech11@gmail.com">swarbtech11@gmail.com</a></p>
+</footer>
+<script>
+    function showSuggestion(dish) {
+        var suggestionElement = document.getElementById("suggestion");
+        if (dish === 'puri') {
+            suggestionElement.innerHTML = "✨ <b>Best Combination:</b> Pair your Puri Bhaji with our cold 'Kesar Rasmalai' or warm 'Kheer' for a perfect meal! 😋";
+            suggestionElement.style.display = "block";
+        } else if (dish === 'chole') {
+            suggestionElement.innerHTML = "✨ <b>Best Combination:</b> Balance the spices of Chole Bhature with a tall glass of our sweet 'Patiala Lassi'! 🥛";
+            suggestionElement.style.display = "block";
+        } else if (dish === 'dosa') {
+            suggestionElement.innerHTML = "✨ <b>Best Combination:</b> Enjoy the authentic South Indian taste with a hot cup of our 'Filter Coffee'! ☕";
+            suggestionElement.style.display = "block";
+        } else if (dish === 'jamun') {
+            suggestionElement.innerHTML = "✨ <b>Chef's Special Twist:</b> Try eating Gulab Jamun with a scoop of Vanilla Ice Cream. You will love it! 🍦";
+            suggestionElement.style.display = "block";
+        } else {
+            suggestionElement.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
